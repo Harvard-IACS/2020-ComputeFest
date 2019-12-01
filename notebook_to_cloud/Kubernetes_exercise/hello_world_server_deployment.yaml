@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server-app
+  template:
+    metadata:
+      labels:
+        app: server-app
+    spec:
+      containers:
+      - name: server-container
+        image: bhavenp/cs207-lecture25:server
+        imagePullPolicy: Always
+        env:
+        - name: DB_URL
+          value: http://172.17.0.4:8081/
+        ports:
+        - containerPort: 8080
