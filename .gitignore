@@ -1,5 +1,8 @@
 # credit: https://github.com/github/gitignore/blob/master/Python.gitignore
 
+ml_api_demo/notebooks/*
+!ml_api_demo/notebooks/.gitkeep
+
 ml_api_demo/docker/*
 !ml_api_demo/docker/.gitkeep
 
