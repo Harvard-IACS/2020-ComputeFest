@@ -28,6 +28,6 @@ services:
       - "5000:5000"
     volumes:
       - ../ml_deploy_demo:/app
-    entrypoint: "/bin/bash" 
+    entrypoint: "/bin/bash run_app.sh"
     stdin_open: true
     tty: true
