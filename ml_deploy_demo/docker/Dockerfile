@@ -2,12 +2,12 @@
 #        docker names usually follow {registry}/{img_name}:{tag} structure.
 #        if omit the registry name here, it defaults to the official docker registry.
 #        in production env, you would want to host your own docker registry.
-FROM python:3.7.0
+ARG BASE_IMG=python:3.7.0
+FROM $BASE_IMG
 
-# assuming dockerfile is run within docker/ folder.
 # @note: args don't last past a FROM command. Hence, they must be put after FROM.
 #        typically, these are to be filled in by your CI/CD system.
-ARG PROJECT_ROOT="../"
+ARG PROJECT_ROOT="."
 ARG PROJECT_NAME="ml_deploy_demo"
 ARG PROJECT_MOUNT_DIR="/app"
 
@@ -28,18 +28,20 @@ ADD $PROJECT_ROOT/requirements.txt $PROJECT_MOUNT_DIR/$PROJECT_NAME/requirements
 
 # change the workdir to $PROJECT_MOUNT_DIR/ml_deploy_demo
 # @note: this will create the path if not existing (=mkdir -p).
-WORKDIR $PROJECT_MOUNT_DIR/$PROJECT_NAME
+#WORKDIR $PROJECT_MOUNT_DIR/$PROJECT_NAME
 
 # pip3 by default as the base image is python 3+
 # @note: each docker RUN create a new "layer".
 #        to avoid unnecessary networking/computations
 #        it's best practice to group commands
 #        if they can be meaningfully and functionally grouped.
+WORKDIR $PROJECT_MOUNT_DIR/$PROJECT_NAME
+
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
    
 # copy project source code (in a host) to docker.
-ADD $PROJECT_ROOT/$PROJECT_NAME $PROJECT_MOUNT_DIR/$PROJECT_NAME
+#ADD $PROJECT_ROOT/$PROJECT_NAME $PROJECT_MOUNT_DIR/$PROJECT_NAME
 
 WORKDIR $PROJECT_MOUNT_DIR
 
@@ -47,4 +49,4 @@ WORKDIR $PROJECT_MOUNT_DIR
 USER $USER_NAME
 
 # expose a specific port for communicating w/ the world outside docker.
-EXPOSE 5000
+# EXPOSE 5000
