@@ -2,7 +2,7 @@ import logging
 
 from flask import Blueprint, request, jsonify
 
-from ml_deploy_demo.pipelines.sklearn import load_sklearn_model
+from ml_deploy_demo.predict import predict_online
 
 logger = logging.getLogger(__name__)
 ml_app = Blueprint("ml_app", __name__)
@@ -16,17 +16,7 @@ def predict():
         data = request.get_json()
         logger.debug(f"Input to predict/: {data}")
 
-        # load data
-        pred = {}
-        try:
-            # @todo: fix the hard coding.
-            save_path = "/app/experiment_output/2020-01-06_02-54-10/support_vector_machine.joblib"
-            checkpoint = load_sklearn_model(save_path)
-            pred = checkpoint.predict(data["data"])
-            # can't jsonify np array
-            pred = pred.tolist()
-        except Exception as e:
-            logger.errors(f"{e}")
+        pred = predict_online(data=data["data"])
 
         return jsonify({"input": data, "pred": pred})
 
