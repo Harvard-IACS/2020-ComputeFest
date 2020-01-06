@@ -1,18 +1,31 @@
 # insert data related stuff
-data:
-    dataset_name: "iris"
-    # dataset_path: 
 
-model:
-    name: "support_vector_machine"
-    params: {
-        "svm_kernel": "rbf",
-        "svm_gamma": 0.7,
-        "svm_C": 1.0,
-    }
+train:
+    experiment:
+        output_dirname: "/app/experiment_output"
 
-experiment:
-    output_dirname: "/app/experiment_output"
+    data:
+        dataset_name: "iris"
+        # train dataset path
+        # dataset_path: 
 
-logging:
-    config_path: "/app/logging.yaml"
+    model:
+        name: "support_vector_machine"
+        params: {
+            "svm_kernel": "rbf",
+            "svm_gamma": 0.7,
+            "svm_C": 1.0,
+        }
+    logging:
+        config_path: "/app/logging.yaml"
+
+predict:
+    data:
+        # validation dataset path
+        # dataset_path: 
+    model:
+        dirname: "/app/models/iris"
+        version: "1"
+
+    logging:
+        config_path: "/app/logging.yaml"
