@@ -105,7 +105,7 @@ An example can be found in `Makefile`.
 ```bash
 make test_api
 ```
-More advanced API development tools like (POSTMAN)[https://www.getpostman.com/] are preferred.
+More advanced API development tools like [POSTMAN](https://www.getpostman.com/) are preferred.
 
 
 ## Deployment
