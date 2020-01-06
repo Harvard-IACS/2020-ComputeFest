@@ -1,22 +1,22 @@
 # credit: https://github.com/github/gitignore/blob/master/Python.gitignore
 
-ml_api_demo/ml_api_demo/log/*
-!ml_api_demo/ml_api_demo/log/.gitkeep
+ml_deploy_demo/log/*
+!ml_deploy_demo/log/.gitkeep
 
-ml_api_demo/ml_api_demo/experiments/*
-!ml_api_demo/ml_api_demo/experiments/.gitkeep
+ml_deploy_demo/experiment_output/*
+!ml_deploy_demo/experiment_output/.gitkeep
 
-ml_api_demo/notebooks/*
-!ml_api_demo/notebooks/.gitkeep
+ml_deploy_demo/notebooks/*
+!ml_deploy_demo/notebooks/.gitkeep
 
-ml_api_demo/docker/*
-!ml_api_demo/docker/.gitkeep
+ml_deploy_demo/docker/*
+!ml_deploy_demo/docker/.gitkeep
 
-ml_api_demo/tests/*
-!ml_api_demo/tests/.gitkeep
+ml_deploy_demo/tests/*
+!ml_deploy_demo/tests/.gitkeep
 
-ml_api_demo/scripts/*
-!ml_api_demo/scripts/.gitkeep
+ml_deploy_demo/scripts/*
+!ml_deploy_demo/scripts/.gitkeep
 
 # Editors
 .vscode/
