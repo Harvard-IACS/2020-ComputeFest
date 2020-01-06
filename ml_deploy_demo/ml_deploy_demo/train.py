@@ -4,8 +4,8 @@ from datetime import datetime
 
 import click
 
-from pipelines.sklearn import run_sklearn_pipeline
-from util.utils import initialize_logging, load_yaml
+from ml_deploy_demo.pipelines.sklearn import run_sklearn_pipeline
+from ml_deploy_demo.util.utils import initialize_logging, load_yaml
 
 
 logger = logging.getLogger(__name__)
@@ -24,6 +24,7 @@ def main(exp_config_path):
     """
     # read off a config file that controls experiment parameters.
     config = load_yaml(exp_config_path)
+    config = config["train"]
 
     # determine an output path where results of an experiment are stored.
     cur_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
