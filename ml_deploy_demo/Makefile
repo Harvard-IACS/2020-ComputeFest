@@ -5,6 +5,14 @@ APP_CONTAINER_ID=$$(docker ps | grep ml_deploy_demo_app | awk '{print $$1}')
 
 PROJECT="ml_deploy_demo"
 
+# superset of python setup.py install
+package_prod:
+	pip install .
+
+# superset of python setup.py develop
+package_dev:
+	pip install --editable .
+
 run_docker_dev:
 	docker exec -it ${DEV_CONTAINER_ID} /bin/bash
 
