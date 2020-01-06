@@ -17,6 +17,6 @@ def initialize_app():
     """
     app = Flask(__name__)
     from ml_deploy_demo.ml_app.ml_app import ml_app
+
     app.register_blueprint(ml_app)
     return app
-

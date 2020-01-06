@@ -1,4 +1,5 @@
 import logging
+import joblib
 from pathlib import Path
 
 import numpy as np
@@ -10,9 +11,6 @@ from sklearn.datasets import load_iris
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import svm
-from sklearn.datasets import make_classification
-
-from util.utils import save_sklearn_model, load_sklearn_model
 
 logger = logging.getLogger(__name__)
 
@@ -26,8 +24,9 @@ def run_sklearn_pipeline(config):
     """
     # load iris data
     data = load_iris()
-    X_train, X_test, y_train, y_test =\
-            train_test_split(data.data, data.target, test_size=0.25, random_state=999)
+    X_train, X_test, y_train, y_test = train_test_split(
+        data.data, data.target, test_size=0.25, random_state=999
+    )
 
     # import model
     model_name = config["model"]["name"]
@@ -36,13 +35,13 @@ def run_sklearn_pipeline(config):
     # if you want to run reproducible experiments at scale,
     # you'd better not hard-code parameters like below in the source code.
     try:
-        if model_name  == "random_forest":
+        if model_name == "random_forest":
             # case - A
             clf = RandomForestClassifier(max_depth=2, random_state=999)
         elif model_name == "support_vector_machine":
             # case - B
             kernel = model_params["svm_kernel"]
-            gamma  = model_params["svm_gamma"]
+            gamma = model_params["svm_gamma"]
             C = model_params["svm_C"]
             clf = svm.SVC(kernel=kernel, gamma=gamma, C=C)
         else:
@@ -51,10 +50,7 @@ def run_sklearn_pipeline(config):
         logger.error(f"{e}")
 
     # create a pipeline
-    pipeline = Pipeline([
-        ("kernel_pca", KernelPCA()),
-        ("model", clf)
-        ])
+    pipeline = Pipeline([("kernel_pca", KernelPCA()), ("model", clf)])
 
     # train
     pipeline.fit(X_train, y_train)
@@ -76,3 +72,17 @@ def run_sklearn_pipeline(config):
     checkpoint = load_sklearn_model(save_path)
     assert np.all(checkpoint.predict(X_test) == pipeline.predict(X_test))
 
+
+def save_sklearn_model(model, save_path):
+    try:
+        joblib.dump(model, save_path)
+    except Exception as e:
+        logger.error(f"{e}")
+
+
+def load_sklearn_model(load_path):
+    try:
+        model = joblib.load(load_path)
+    except Exception as e:
+        logger.error(f"{e}")
+    return model

@@ -1,8 +1,9 @@
-import joblib
 import logging
 import logging.config
 from pathlib import Path
 import yaml
+
+import coloredlogs
 
 
 def load_yaml(yaml_path):
@@ -33,22 +34,15 @@ def initialize_logging(config_path, exp_dirname=None):
             if "filename" in handler:
                 # must be a file handler
                 handler["filename"] = exp_dirname / handler["filename"]
+
+        # install coloredlogs for console handler only
+        console_format = config["formatters"][
+            config["handlers"]["console"]["formatter"]
+        ]["format"]
+        console_level = config["handlers"]["console"]["level"]
+        console_stream = config["handlers"]["console"]["stream"]
+        coloredlogs.install(fmt=console_format, level=console_level, sys=console_stream)
+
         logging.config.dictConfig(config)
     finally:
         logging.info(f"Logging initialized.")
-
-
-def save_sklearn_model(model, save_path):
-    try:
-        joblib.dump(model, save_path)
-    except Exception as e:
-        logger.error(f"{e}")
-
-
-def load_sklearn_model(load_path):
-    try:
-        model = joblib.load(load_path)
-    except Exception as e:
-        logger.error(f"{e}")
-    return model
-
