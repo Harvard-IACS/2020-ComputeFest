@@ -2,6 +2,7 @@ numpy
 pandas
 scikit-learn
 jupyterlab
+pyyaml
 
 flask
 gunicorn

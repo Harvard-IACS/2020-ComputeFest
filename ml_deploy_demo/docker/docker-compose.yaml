@@ -13,21 +13,33 @@ services:
     ports:
         - "8888:8888"
     volumes:
-      - ../ml_deploy_demo:/app
+      - ..:/app
     # @note: quite involved, but each has a reason
     #        https://stackoverflow.com/questions/38830610/access-jupyter-notebook-running-on-docker-container
     entrypoint: bash -c "cd /app && jupyter notebook --ip=0.0.0.0 --allow-root --port=8888 --NotebookApp.token='' && /bin/bash" 
     stdin_open: true
     tty: true
 
-  bash:
+  dev:
+    build:
+      # relative to docker-compose file
+      context: .
+    ports:
+      - "7777:7777"
+    volumes:
+      - ..:/app
+    entrypoint: "/bin/bash"
+    stdin_open: true
+    tty: true
+
+  app:
     build:
       # relative to docker-compose file
       context: .
     ports:
       - "5000:5000"
     volumes:
-      - ../ml_deploy_demo:/app
-    entrypoint: "/bin/bash run_app.sh"
+      - ..:/app
+    entrypoint: "/bin/bash ml_deploy_demo/run.sh"
     stdin_open: true
     tty: true

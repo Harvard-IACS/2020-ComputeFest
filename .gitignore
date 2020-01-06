@@ -1,7 +1,10 @@
 # credit: https://github.com/github/gitignore/blob/master/Python.gitignore
 
-ml_api_demo/log/*
-!ml_api_demo/log/.gitkeep
+ml_api_demo/ml_api_demo/log/*
+!ml_api_demo/ml_api_demo/log/.gitkeep
+
+ml_api_demo/ml_api_demo/experiments/*
+!ml_api_demo/ml_api_demo/experiments/.gitkeep
 
 ml_api_demo/notebooks/*
 !ml_api_demo/notebooks/.gitkeep

@@ -16,3 +16,21 @@ To get into a running docker container.
 # container_id can be obtained from docker ps
 docker exec -it ${CONTAINER_ID} /bin/bash
 ```
+
+
+## Applications/Services (Docker containers)
+
+### Jupyter Notebook
+```bash
+make run_docker_notebook
+```
+
+### API
+```bash
+make run_docker_app
+```
+
+### dev
+```bash
+make run_docker_dev
+```
