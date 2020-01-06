@@ -15,25 +15,24 @@ def load_yaml(yaml_path):
     return config
 
 
-def initialize_logging(config_path, exp_dirname=None):
+def initialize_logging(config_path, log_dirname=None):
     """Initialize logger from path.
     """
     try:
         config = load_yaml(config_path)
     except Exception as e:
+        # if fail
         logging.basicConfig(level=logging.INFO)
         logging.info(f"{e}. Falling back to default logger.")
     else:
         # if successful
-        if exp_dirname is None:
-            # @todo: fix this hard-coding.
-            exp_dirname = Path("/app/log")
-
-        for handler_name in config["handlers"]:
-            handler = config["handlers"][handler_name]
-            if "filename" in handler:
-                # must be a file handler
-                handler["filename"] = exp_dirname / handler["filename"]
+        if log_dirname is not None:
+            for handler_name in config["handlers"]:
+                handler = config["handlers"][handler_name]
+                if "filename" in handler:
+                    # must be a file handler
+                    filename = Path(handler["filename"]).name
+                    handler["filename"] = log_dirname / filename
 
         # install coloredlogs for console handler only
         console_format = config["formatters"][

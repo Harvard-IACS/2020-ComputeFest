@@ -19,21 +19,21 @@ handlers:
         level: INFO
         mode: w
         formatter: simple
-        filename: info.log
+        filename: /app/log/info.log
 
     error_file_handler:
         class: logging.FileHandler
         level: ERROR
         mode: w
         formatter: verbose
-        filename: errors.log
+        filename: /app/log/errors.log
 
     debug_file_handler:
         class: logging.FileHandler
         level: DEBUG
         mode: w
         formatter: verbose
-        filename: debug.log
+        filename: /app/log/debug.log
 
 # default logging handler declaration
 root:
