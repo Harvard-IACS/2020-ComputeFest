@@ -98,6 +98,16 @@ All experiments are expected to be configured via files in `experiment_configs/*
 @todo: add more advice.
 Ideally, you would want to have a more advanced tools for experiment tracking.
 
+## Running API service
+The prediction endpoint is exposed, by default, at `http://0.0.0.0:5000/predict` where a sklearn model trained on Iris dataset is serving. You can make a POST request with a json object has the key "data" to receive predictions of the model.
+
+An example can be found in `Makefile`.
+```bash
+make test_api
+```
+More advanced API development tools like (POSTMAN)[https://www.getpostman.com/] are preferred.
+
+
 ## Deployment
 
 ## Running the tests
