@@ -1,5 +1,5 @@
 import logging
-from api.app import initialize_app
+from ml_deploy_demo.api.app import initialize_app
 
 logger = logging.getLogger(__name__)
 
