@@ -1,0 +1,18 @@
+# insert data related stuff
+data:
+    dataset_name: "iris"
+    # dataset_path: 
+
+model:
+    name: "support_vector_machine"
+    params: {
+        "svm_kernel": "rbf",
+        "svm_gamma": 0.7,
+        "svm_C": 1.0,
+    }
+
+experiment:
+    output_dirname: "/app/experiment_output"
+
+logging:
+    config_path: "/app/logging.yaml"
