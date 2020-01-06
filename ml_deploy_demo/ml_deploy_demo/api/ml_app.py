@@ -2,6 +2,7 @@ import logging
 
 from flask import Blueprint, request, jsonify
 
+
 logger =  logging.getLogger(__name__)
 
 ml_app = Blueprint('ml_app', __name__)
