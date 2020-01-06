@@ -37,14 +37,17 @@ def main(exp_config_path):
     # @note: log files are stored to each exp_dirname.
     #        this is more useful for machine learning pipelines.
     #        as opposed to a standard web app where it has centralized log.
+    #        for other modules other than train.py we log to the centralized.
     log_config_path = config["logging"]["config_path"]
-    initialize_logging(config_path=log_config_path, exp_dirname=exp_output_dirname)
+    initialize_logging(config_path=log_config_path, log_dirname=exp_output_dirname)
 
+
+    # a demo of a training pipeline using sklearn Pipeline
+    # @todo: add more pipelines: e.g. tensorflow, pytorch
     if config["data"]["dataset_name"] == "iris":
         run_sklearn_pipeline(config)
     else:
         raise ValueError(f"Unsupported dataset was given {config['data']}.")
-
 
 if __name__ == "__main__":
     main()
