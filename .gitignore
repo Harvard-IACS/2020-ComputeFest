@@ -1,5 +1,10 @@
 # credit: https://github.com/github/gitignore/blob/master/Python.gitignore
 
+# one exception for demo purpose
+ml_deploy_demo/models/iris/*
+!ml_deploy_demo/models/iris/.gitkeep
+!ml_deploy_demo/models/iris/v1.joblib
+
 ml_deploy_demo/log/*
 !ml_deploy_demo/log/.gitkeep
 
