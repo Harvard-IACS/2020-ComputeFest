@@ -17,11 +17,6 @@ ml_deploy_demo/notebooks/*
 ml_deploy_demo/docker/*
 !ml_deploy_demo/docker/.gitkeep
 
-ml_deploy_demo/tests/*
-!ml_deploy_demo/tests/.gitkeep
-
-ml_deploy_demo/scripts/*
-!ml_deploy_demo/scripts/.gitkeep
 
 # Editors
 .vscode/
