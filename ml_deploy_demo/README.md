@@ -60,7 +60,7 @@ Regarding docker-compose, refer to this [doc](https://docs.docker.com/compose/in
 
 
 ### Development Environments
-In `docker/` directiory, we have `Dockerfile`, a blueprint for our development environment, `docker-compose.yaml`, a handy configuration file for controlling multiple docker containers, and `requirements.txt` that lists the python dependencies.
+In `docker/` directory, we have `Dockerfile`, a blueprint for our development environment, `docker-compose.yaml`, a handy configuration file for controlling multiple docker containers, and `requirements.txt` that lists the python dependencies.
 
 Currently, we support three docker images where each serves a different purpose:
 - `ml_deploy_demo_jupyter`: a server for running jupyter notebooks.
