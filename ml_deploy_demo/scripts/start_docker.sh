@@ -1,4 +1,4 @@
-#!/bin/ash
+#!/bin/bash
 
 # project-name is used when creating container names
 # -d making the containers running in a detached mode (as a background process)
