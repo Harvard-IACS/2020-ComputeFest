@@ -1,21 +1,21 @@
 # credit: https://github.com/github/gitignore/blob/master/Python.gitignore
 
 # one exception for demo purpose
-ml_deploy_demo/models/iris/*
-!ml_deploy_demo/models/iris/.gitkeep
-!ml_deploy_demo/models/iris/v1.joblib
+notebook_to_cloud/ml_deploy_demo/models/iris/*
+!notebook_to_cloud/ml_deploy_demo/models/iris/.gitkeep
+!notebook_to_cloud/ml_deploy_demo/models/iris/v1.joblib
 
-ml_deploy_demo/log/*
-!ml_deploy_demo/log/.gitkeep
+notebook_to_cloud/ml_deploy_demo/log/*
+!notebook_to_cloud/ml_deploy_demo/log/.gitkeep
 
-ml_deploy_demo/experiment_output/*
-!ml_deploy_demo/experiment_output/.gitkeep
+notebook_to_cloud/ml_deploy_demo/experiment_output/*
+!notebook_to_cloud/ml_deploy_demo/experiment_output/.gitkeep
 
-ml_deploy_demo/notebooks/*
-!ml_deploy_demo/notebooks/.gitkeep
+notebook_to_cloud/ml_deploy_demo/notebooks/*
+!notebook_to_cloud/ml_deploy_demo/notebooks/.gitkeep
 
-ml_deploy_demo/docker/*
-!ml_deploy_demo/docker/.gitkeep
+notebook_to_cloud/ml_deploy_demo/docker/*
+!notebook_to_cloud/ml_deploy_demo/docker/.gitkeep
 
 
 # Editors
