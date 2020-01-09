@@ -1,0 +1,48 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+    simple:
+        format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    verbose:
+        format: "%(levelname)s <PID %(process)d:%(processName)s> %(name)s.%(funcName)s(): %(message)s"
+
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: verbose
+        stream: ext://sys.stdout
+
+    info_file_handler:
+        class: logging.FileHandler
+        level: INFO
+        mode: w
+        formatter: simple
+        filename: /app/log/info.log
+
+    error_file_handler:
+        class: logging.FileHandler
+        level: ERROR
+        mode: w
+        formatter: verbose
+        filename: /app/log/errors.log
+
+    debug_file_handler:
+        class: logging.FileHandler
+        level: DEBUG
+        mode: w
+        formatter: verbose
+        filename: /app/log/debug.log
+
+# default logging handler declaration
+root:
+    level: DEBUG
+    handlers: [console, info_file_handler, error_file_handler, debug_file_handler]
+    propogate: yes
+
+# module-level logging handler declaration
+loggers:
+    train:
+        level: DEBUG
+        handlers: [console, info_file_handler, error_file_handler, debug_file_handler]
