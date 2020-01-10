@@ -274,28 +274,39 @@ def regenerative_morph(source1, source2, target, ws, alpha):
         target = newtarget.copy()
 
     plt.imshow(target.astype('uint8'))
-    plt.title('Regenerative Morphed Frame')
     plt.axis('off')
-    plt.show()
+    plt.savefig('images/outputs/frame55.png')
+    plt.close()
     
     return target
 
-
-
 print("\nCreating Frame 55")
+
 source1 = cv2.imread('images/inputs/frame50.png')[...,::-1]
 source2 = cv2.imread('images/inputs/frame60.png')[...,::-1]
+ref = cv2.imread('images/references/frame55.png')[...,::-1]
 ws = [3, 5, 7]
-
-plt.imshow(source1.astype('uint8'))
-plt.title('Source Frame 1')
-plt.axis('off')
-plt.show()
-
-plt.imshow(source2.astype('uint8'))
-plt.title('Source Frame 2')
-plt.axis('off')
-plt.show()
-
 target = 0.5*source1 + 0.5*source2
-sim = regenerative_morph(source1, source2, target, ws, 0.5)
+morph = regenerative_morph(source1, source2, target, ws, 0.5)
+
+f, axes = plt.subplots(1,4, figsize=(15,4))
+
+
+axes[0].imshow(source1.astype('uint8'))
+axes[0].title.set_text('Frame 50')
+axes[0].axis('off')
+
+axes[1].imshow(source2.astype('uint8'))
+axes[1].title.set_text('Frame 60')
+axes[1].axis('off')
+
+axes[2].imshow(morph.astype('uint8'))
+axes[2].title.set_text('Frame 55 (Morphed)')
+axes[2].axis('off')
+
+axes[3].imshow(ref.astype('uint8'))
+axes[3].title.set_text('Frame 55 (Reference)')
+axes[3].axis('off')
+
+plt.show()
+f.savefig('images/outputs/full_output.png')
