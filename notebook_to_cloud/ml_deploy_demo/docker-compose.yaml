@@ -1,0 +1,45 @@
+# docker-compose lets you run multiple docker containers in a single host easily.
+# it encourages composability, portability, and scalability.
+# @note: read more about microservice patterns
+# @note: use this or you can use k8s.
+# @note: e.g. you have one container for jupyter notebook
+version: "3"
+
+services:
+  jupyter:
+    build:
+      # relative to docker-compose file
+      context: .
+    ports:
+        - "8888:8888"
+    volumes:
+      - .:/app
+    # @note: quite involved, but each has a reason
+    #        https://stackoverflow.com/questions/38830610/access-jupyter-notebook-running-on-docker-container
+    entrypoint: bash -c "cd /app && jupyter notebook --ip=0.0.0.0 --allow-root --port=8888 --NotebookApp.token='' && /bin/bash"
+    stdin_open: true
+    tty: true
+
+  dev:
+    build:
+      # relative to docker-compose file
+      context: .
+    ports:
+      - "7777:7777"
+    volumes:
+      - .:/app
+    entrypoint: "/bin/bash"
+    stdin_open: true
+    tty: true
+
+  app:
+    build:
+      # relative to docker-compose file
+      context: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    entrypoint: "/bin/bash ml_deploy_demo/run.sh"
+    stdin_open: true
+    tty: true

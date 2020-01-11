@@ -1,7 +1,7 @@
 import io
 import os
 from pathlib import Path
-from setuptools import setup
+from setuptools import setup, find_packages
 
 ROOT_DIR = Path(__file__).resolve().parent
 
@@ -19,9 +19,9 @@ setup(
     long_description_content_type="text/markdown",
     author="",
     author_email="",
-    python_requires= ">=3.8.0",
+    python_requires= ">=3.7.0",
     url="",
-    #packages={},
+    packages=find_packages(),
     #package_data={},
     #install_requires=[],
     extras_require={},
