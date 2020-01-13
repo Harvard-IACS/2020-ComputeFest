@@ -5,10 +5,6 @@ pandas
 scikit-learn
 flask
 gunicorn
-tensorflow
-keras
-scipy
-imageio
 
 # dev
 jupyterlab
