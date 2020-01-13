@@ -59,7 +59,7 @@ def run_pipeline():
 
     # Train
     history = model.fit(train_data.shuffle(10000).batch(512),
-                    epochs=20,
+                    epochs=config['model']['params']['num_epochs'],
                     validation_data=validation_data.batch(512),
                     verbose=1)
     # Test

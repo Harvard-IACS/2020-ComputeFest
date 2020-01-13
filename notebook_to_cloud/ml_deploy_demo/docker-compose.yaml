@@ -6,19 +6,19 @@
 version: "3"
 
 services:
-  # jupyter:
-  #   build:
-  #     # relative to docker-compose file
-  #     context: .
-  #   ports:
-  #       - "8888:8888"
-  #   volumes:
-  #     - .:/app
-  #   # @note: quite involved, but each has a reason
-  #   #        https://stackoverflow.com/questions/38830610/access-jupyter-notebook-running-on-docker-container
-  #   entrypoint: bash -c "cd /app && jupyter notebook --ip=0.0.0.0 --allow-root --port=8888 --NotebookApp.token='' && /bin/bash"
-  #   stdin_open: true
-  #   tty: true
+  jupyter:
+    build:
+      # relative to docker-compose file
+      context: .
+    ports:
+        - "8888:8888"
+    volumes:
+      - .:/app
+    # @note: quite involved, but each has a reason
+    #        https://stackoverflow.com/questions/38830610/access-jupyter-notebook-running-on-docker-container
+    entrypoint: bash -c "cd /app && jupyter notebook --ip=0.0.0.0 --allow-root --port=8888 --NotebookApp.token='' && /bin/bash"
+    stdin_open: true
+    tty: true
 
   dev:
     build:

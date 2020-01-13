@@ -1,8 +1,7 @@
-# @note: we start with a smal docker image that contains a python3.7.0 runtime.
+# @note: we start with the tensorflow 2.1 docker image with python3 and jupyter
 #        docker names usually follow {registry}/{img_name}:{tag} structure.
 #        if omit the registry name here, it defaults to the official docker registry.
 #        in production env, you would want to host your own docker registry.
-# ARG BASE_IMG=python:3.7.0
 ARG BASE_IMG=tensorflow/tensorflow:2.1.0-py3-jupyter
 FROM $BASE_IMG
 

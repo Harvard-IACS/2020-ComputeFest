@@ -46,6 +46,9 @@ def predict_online(data, config=None):
     """Predict from in-memory data on the fly.
     """
     if config is None:
+        logger.debug(
+            "Config path was not explicitly passed. Falling back to default config."
+        )
         config = load_yaml(DEFAULT_CONFIG_PATH)
         config = config["predict"]
 
@@ -57,9 +60,6 @@ def predict_online(data, config=None):
         MODEL_EXT = "keras" # joblib
         # model_path = Path(model_dirname) / f"v{model_version}.{MODEL_EXT}"
         model_path = os.path.join(model_dirname, f"v{model_version}.{MODEL_EXT}")
-        logger.debug(
-            "Model path was not explicitly passed. Falling back to default config."
-        )
 
     try:
         # @todo: fix the hard coding

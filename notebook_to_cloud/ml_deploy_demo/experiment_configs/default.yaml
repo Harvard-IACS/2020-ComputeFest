@@ -6,22 +6,18 @@ train:
 
     data:
         dataset_name: "imdb"
-        # train dataset path
-        # dataset_path:
 
     model:
         name: "sentiment_dnn"
         params: {
             "hidden_units": 16,
             "hidden_layers": 1,
+            "num_epochs": 20,
         }
     logging:
         config_path: "/app/logging.yaml"
 
 predict:
-    data:
-        # validation dataset path
-        # dataset_path:
     model:
         dirname: "/app/models/imdb"
         version: "1"

@@ -9,7 +9,6 @@ tensorflow-hub
 tensorflow-datasets
 
 # dev
-# jupyterlab
 coloredlogs
 black
 flake8
