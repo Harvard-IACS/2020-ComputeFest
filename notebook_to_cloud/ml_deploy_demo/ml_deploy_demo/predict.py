@@ -1,9 +1,11 @@
 import logging
 from pathlib import Path
+import os
 
 import click
 
 from ml_deploy_demo.pipelines.sklearn import load_sklearn_model
+from ml_deploy_demo.pipelines.keras import load_keras_hub_model
 from ml_deploy_demo.util.utils import initialize_logging, load_yaml
 
 
@@ -52,21 +54,23 @@ def predict_online(data, config=None):
 
         model_dirname = config["model"]["dirname"]
         model_version = config["model"]["version"]
-        MODEL_EXT = "joblib"
-        model_path = Path(model_dirname) / f"v{model_version}.{MODEL_EXT}"
+        MODEL_EXT = "keras" # joblib
+        # model_path = Path(model_dirname) / f"v{model_version}.{MODEL_EXT}"
+        model_path = os.path.join(model_dirname, f"v{model_version}.{MODEL_EXT}")
         logger.debug(
             "Model path was not explicitly passed. Falling back to default config."
         )
 
     try:
         # @todo: fix the hard coding
-        checkpoint = load_sklearn_model(model_path)
+        # checkpoint = load_sklearn_model(model_path)
+        checkpoint = load_keras_hub_model(model_path)
         pred = checkpoint.predict(data)
         # can't jsonify np array
         pred = pred.tolist()
         logger.info({"input": data, "pred": pred})
     except Exception as e:
-        logger.errors(f"{e}")
+        logger.error(f"{e}")
         pred = []
 
     return pred

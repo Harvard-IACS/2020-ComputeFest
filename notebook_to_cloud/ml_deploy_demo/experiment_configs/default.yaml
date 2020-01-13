@@ -23,7 +23,7 @@ predict:
         # validation dataset path
         # dataset_path:
     model:
-        dirname: "/app/models/sentiment"
+        dirname: "/app/models/imdb"
         version: "1"
 
     logging:
