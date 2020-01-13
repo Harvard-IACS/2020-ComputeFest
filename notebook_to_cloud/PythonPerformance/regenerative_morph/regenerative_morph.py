@@ -6,7 +6,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2
-from tqdm import tqdm
+
+import time
+# import profile
 
 # This is a helper function to tranform a matrix into smaller patches
 # It was originally a Matlab command, and having it in Python would greatly help performance
@@ -266,47 +268,49 @@ def target2sources(source1, source2, target, w):
 
 def regenerative_morph(source1, source2, target, ws, alpha):
 
-    for i in tqdm(range(len(ws))):
-        w = ws[i]
-        print("Patch size: ", w)
+    for w in ws:
         newtarget = target2sources(source1, source2, target, w)
-
         target = newtarget.copy()
 
     plt.imshow(target.astype('uint8'))
     plt.axis('off')
-    plt.savefig('images/outputs/cat_frame4.png')
+    plt.savefig('images/outputs/frame55.png')
     plt.close()
     
     return target
 
-print("\nCreating Frame 7")
+print("\nCreating Frame 55")
 
-source1 = cv2.imread('images/inputs/cat_frame1_small.png')[...,::-1]
-source2 = cv2.imread('images/inputs/cat_frame7_small.png')[...,::-1]
-ref = cv2.imread('images/references/cat_frame4_small.png')[...,::-1]
+source1 = cv2.imread('images/inputs/frame50.png')[...,::-1]
+source2 = cv2.imread('images/inputs/frame60.png')[...,::-1]
+ref = cv2.imread('images/references/frame55.png')[...,::-1]
 ws = [3, 5, 7]
 target = 0.5*source1 + 0.5*source2
+
+start = time.time()
 morph = regenerative_morph(source1, source2, target, ws, 0.5)
+# profile.run('morph = regenerative_morph(source1, source2, target, ws, 0.5)')
+end = time.time()
+print('Time elapsed: %.4f s.' % (end - start))
 
 f, axes = plt.subplots(1,4, figsize=(15,4))
 
 
 axes[0].imshow(source1.astype('uint8'))
-axes[0].title.set_text('Frame 1')
+axes[0].title.set_text('Frame 50')
 axes[0].axis('off')
 
 axes[1].imshow(source2.astype('uint8'))
-axes[1].title.set_text('Frame 7')
+axes[1].title.set_text('Frame 60')
 axes[1].axis('off')
 
 axes[2].imshow(morph.astype('uint8'))
-axes[2].title.set_text('Frame 4 (Morphed)')
+axes[2].title.set_text('Frame 55 (Morphed)')
 axes[2].axis('off')
 
 axes[3].imshow(ref.astype('uint8'))
-axes[3].title.set_text('Frame 4 (Reference)')
+axes[3].title.set_text('Frame 55 (Reference)')
 axes[3].axis('off')
 
 plt.show()
-f.savefig('images/outputs/cat_full_output.png')
+f.savefig('images/outputs/full_output.png')
