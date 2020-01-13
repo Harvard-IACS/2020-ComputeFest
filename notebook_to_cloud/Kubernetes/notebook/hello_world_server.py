@@ -3,32 +3,20 @@ import socketserver
 from http import HTTPStatus
 import requests
 import sys
+import numpy as np
+import array
 
 class Handler(http.server.SimpleHTTPRequestHandler):
-
 
     def do_GET(self):
         self.send_response(HTTPStatus.OK);
         self.end_headers();
 
-        # determine what the URL for the database should be
-        if(len(sys.argv) == 2):
-            db_url = sys.argv[1];
-        else:
-            db_url = 'http://localhost:8081/'; # set default url for database
-
-        try:
-	        # response = requests.get('http://localhost:8081/', timeout=2.50);
-            response = requests.get(db_url, timeout=2.50);
-            if(response.ok): # check if status_code is 200 or less, which indicates succeessful response
-                self.wfile.write(response.text.encode('ascii'));
-            else:
-                print(db_url)
-                print(response.text);
-                raise Exception();
-        except Exception as e:
-            print(e);
-            self.wfile.write(b'Could not connect to database.');
+        hello_list = ['Hello world!', 'Hola mundo!', 'Da jia hao!', 'Bonjour monde!',
+    'Namaste duniya!', "Hallo welt!"];
+        # get random phrase from list
+        hello_phrase = np.random.choice(a=hello_list, size=1)[0];
+        self.wfile.write(hello_phrase.encode('ascii'));
 
 
 PORT_NUMBER = 8080;
