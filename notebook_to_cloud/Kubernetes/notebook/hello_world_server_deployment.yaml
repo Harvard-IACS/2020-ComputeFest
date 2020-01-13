@@ -14,10 +14,7 @@ spec:
     spec:
       containers:
       - name: server-container
-        image: bhavenp/cs207-lecture25:server
+        image: bhavenp/hello_world_server:latest
         imagePullPolicy: Always
-        env:
-        - name: DB_URL
-          value: http://172.17.0.4:8081/
         ports:
         - containerPort: 8080
