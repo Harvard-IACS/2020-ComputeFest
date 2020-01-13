@@ -4,7 +4,6 @@ from http import HTTPStatus
 import requests
 import sys
 import numpy as np
-import array
 
 class Handler(http.server.SimpleHTTPRequestHandler):
 
