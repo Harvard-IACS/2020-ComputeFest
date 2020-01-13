@@ -19,7 +19,7 @@ setup(
     long_description_content_type="text/markdown",
     author="",
     author_email="",
-    python_requires= ">=3.7.0",
+    python_requires= ">=3.6.0",
     url="",
     packages=find_packages(),
     #package_data={},

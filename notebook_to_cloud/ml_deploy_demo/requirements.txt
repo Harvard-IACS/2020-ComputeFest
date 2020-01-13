@@ -5,9 +5,11 @@ pandas
 scikit-learn
 flask
 gunicorn
+tensorflow-hub
+tensorflow-datasets
 
 # dev
-jupyterlab
+# jupyterlab
 coloredlogs
 black
 flake8

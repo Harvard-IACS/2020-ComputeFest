@@ -2,13 +2,13 @@
 #        docker names usually follow {registry}/{img_name}:{tag} structure.
 #        if omit the registry name here, it defaults to the official docker registry.
 #        in production env, you would want to host your own docker registry.
-ARG BASE_IMG=python:3.7.0
+# ARG BASE_IMG=python:3.7.0
+ARG BASE_IMG=tensorflow/tensorflow:2.1.0-py3-jupyter
 FROM $BASE_IMG
 
 # @note: args don't last past a FROM command. Hence, they must be put after FROM.
 #        typically, these are to be filled in by your CI/CD system.
 ARG PROJECT_ROOT="."
-ARG PROJECT_NAME="ml_deploy_demo"
 ARG PROJECT_MOUNT_DIR="/app"
 
 # We avoid running docker as root at construction.
@@ -41,6 +41,3 @@ RUN pip install --upgrade pip && \
 
 # set the default user
 USER $USER_NAME
-
-# expose a specific port for communicating w/ the world outside docker.
-# EXPOSE 5000

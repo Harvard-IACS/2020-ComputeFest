@@ -5,16 +5,15 @@ train:
         output_dirname: "/app/experiment_output"
 
     data:
-        dataset_name: "iris"
+        dataset_name: "imdb"
         # train dataset path
-        # dataset_path: 
+        # dataset_path:
 
     model:
-        name: "support_vector_machine"
+        name: "sentiment_dnn"
         params: {
-            "svm_kernel": "rbf",
-            "svm_gamma": 0.7,
-            "svm_C": 1.0,
+            "hidden_units": 16,
+            "hidden_layers": 1,
         }
     logging:
         config_path: "/app/logging.yaml"
@@ -22,9 +21,9 @@ train:
 predict:
     data:
         # validation dataset path
-        # dataset_path: 
+        # dataset_path:
     model:
-        dirname: "/app/models/iris"
+        dirname: "/app/models/sentiment"
         version: "1"
 
     logging:
