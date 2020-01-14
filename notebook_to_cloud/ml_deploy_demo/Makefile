@@ -36,4 +36,4 @@ black:
 # a hacky way to test api.
 test_api:
 	curl -i -H "Content-Type: application/json" \
-		-X POST -d '{"data": [[5.1, 2.8, 5.6, 4.2], [3.1, 2.8, 2.6, 4.2]]}' http://0.0.0.0:5000/predict
+		-X POST -d '{"data": ["this is the best!", "this is the worst!"]}' http://0.0.0.0:5000/predict

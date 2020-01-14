@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentiment-analysis-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-app
+  template:
+    metadata:
+      labels:
+        app: ml-app
+    spec:
+      containers:
+      - name: ml-app-container
+        image: bhavenp/sentiment-analysis:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
