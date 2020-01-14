@@ -15,8 +15,8 @@ In this directory, we have `Dockerfile`, a blueprint for our development environ
 To serve the provided pre-trained model, follow these steps:
 1. `git clone` this repo
 2. `cd notebook_to_cloud/ml_deploy_demo`
-3. `docker build .` -- this references the `Dockerfile` to build our **Docker image**
-4. `docker images` & find the image id of the newly built Docker image
+3. `docker build -t ml_deploy_demo:latest .` -- this references the `Dockerfile` at `.` (current directory) to build our **Docker image** & tags the docker image with `ml_deploy_demo:latest`
+4. Run `docker images` & find the image id of the newly built Docker image, OR run `docker images | grep ml_deploy_demo | awk '{print $3}'`
 5. `docker run -it --rm -p 5000:5000 {image_id} /bin/bash ml_deploy_demo/run.sh` -- this refers to the image we built to run a **Docker container**
 
 If everything worked properly, you should now have a container running, which:
