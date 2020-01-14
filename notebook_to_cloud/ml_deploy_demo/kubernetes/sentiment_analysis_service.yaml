@@ -7,7 +7,7 @@ metadata:
 spec:
   selector:
     app: ml-app
-  ports:
-  - port: 5000 #entry port for 
-    targetPort: 5000 #target port on any pods named server-app
+  ports: # route external requests coming in on port 5000 to our pod
+  - port: 5000 #entry port for external requests
+    targetPort: 5000 #target port on any pods named ml-app
   type: LoadBalancer

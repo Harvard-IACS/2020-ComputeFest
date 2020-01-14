@@ -16,5 +16,7 @@ spec:
       - name: ml-app-container
         image: bhavenp/sentiment-analysis:latest
         imagePullPolicy: Always
+        command: ['/bin/bash'] #starts up the Flask application
+        args: ['ml_deploy_demo/run.sh']
         ports:
         - containerPort: 5000
