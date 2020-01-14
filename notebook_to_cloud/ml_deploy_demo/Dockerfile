@@ -19,8 +19,8 @@ ARG PROJECT_MOUNT_DIR="/app"
 #        we avoid the catastrophic situation. by default, docker runs as root!
 # https://stackoverflow.com/questions/27701930/add-user-to-docker-container
 # https://medium.com/jobteaser-dev-team/docker-user-best-practices-a8d2ca5205f4
-ARG USER_NAME="ml_deploy"
-RUN adduser --disabled-password --gecos '' $USER_NAME
+# ARG USER_NAME="ml_deploy"
+# RUN adduser --disabled-password --gecos '' $USER_NAME
 
 # @note: this will create the path if not existing (=mkdir -p).
 ADD $PROJECT_ROOT $PROJECT_MOUNT_DIR
@@ -39,4 +39,4 @@ RUN pip install --upgrade pip && \
     pip install .
 
 # set the default user
-USER $USER_NAME
+# USER $USER_NAME
