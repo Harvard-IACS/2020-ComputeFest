@@ -6,8 +6,8 @@
 
 ### Directory Info
 * `images/` : contain folders of input/output/reference images
-* `regenerative_morph_slow.py` : create a morphed image of two inputs, slow version
 * `regenerative_morph.py`: create a morphed image of two inputs, standard version
+* `regenerative_morph_slow.py` : create a morphed image of two inputs, slow version
 
 ### How to Run
 (Under activated `python_performance_env` environment) Go to the folder.
