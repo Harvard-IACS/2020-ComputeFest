@@ -1,0 +1,8 @@
+name: python_performance_env
+channels:
+  - defaults
+dependencies:
+  - matplotlib
+  - opencv
+  - python=3.7
+  - numpy
