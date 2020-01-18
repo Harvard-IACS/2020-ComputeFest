@@ -1,10 +1,11 @@
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
-
+# specify the name of EKS cluster we are creating
+# and the region in which we want to create it
 metadata:
   name: test-cluster
   region: us-east-1
-
+# specify the details for a group of AWS instances that will act as workers
 nodeGroups:
   - name: standard-workers
     instanceType: t2.small

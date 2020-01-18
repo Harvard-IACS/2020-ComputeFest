@@ -1,22 +1,27 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment # specify the K8s component the folliwing parameters define
 metadata:
-  name: sentiment-analysis-deployment
+  name: sentiment-analysis-deployment # name of our Deployment
 spec:
-  replicas: 1
+  replicas: 1 # we only want one Pod for our Deployment
+  # The `selector` defines how the Deployment finds which Pod(s) to manage. In this case, we simply select a label that is defined in the Pod template.
   selector:
     matchLabels:
       app: ml-app
+  # The `template` field defines the label for the Pod(s).
   template:
     metadata:
       labels:
         app: ml-app
     spec:
-      containers:
+      containers: # specify which containers should be within this Pod
       - name: ml-app-container
+        # specify the Docker image and version we want to use
         image: bhavenp/sentiment-analysis:latest
         imagePullPolicy: Always
-        command: ['/bin/bash'] #starts up the Flask application
-        args: ['ml_deploy_demo/run.sh']
+        # specify the command to run when starting the container
+        command: ['/bin/bash'] 
+        args: ['ml_deploy_demo/run.sh'] # This will start our application within the container
+        # specify ports to open for this container
         ports:
         - containerPort: 5000
