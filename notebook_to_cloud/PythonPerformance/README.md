@@ -7,7 +7,7 @@
 Go to the folder and activate the environment.
 ```sh
 $ cd /your_computefest_folder/2020-ComputeFest/notebook_to_cloud/PythonPerformance/
-$ env create -f environment.yml
+$ conda env create -f environment.yml
 $ conda activate python_performance_env
 ```
 
