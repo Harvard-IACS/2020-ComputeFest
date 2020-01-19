@@ -48,7 +48,7 @@ Now, you can configure your AWS CLI with the credentials you just created and do
 ## Install `eksctl`
 If you have already installed the `eksctl` tool previously, please update to the latest version so that your `GitTag` is `0.12.0`.  
   
-1. Follow the instructions [here]([https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html#w243aac11b7b5b9b7b1](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html#w243aac11b7b5b9b7b1)) under the "**Install eksctl**" section to install _eksctl_ depending on your operating system.  
+1. Follow the instructions [here](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html#w243aac11b7b5b9b7b1) under the "**Install eksctl**" section to install _eksctl_ depending on your operating system.  
   
 If you run `eksctl version` in your Terminal window, you should get `version.Info{BuiltAt:"", GitCommit:"", GitTag:"0.12.0"}`. The `GitTag` should be `0.12.0`.  
   
