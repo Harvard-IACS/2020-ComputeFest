@@ -85,7 +85,14 @@ Follow the instructions of your operating system:
 			REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v EditionID /t REG_SZ /d "Core"
 			REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v ProductName /t REG_SZ /d "Windows 10 Home"
   
-  
+Open a Terminal window and type  `docker run hello-world`  to make sure Docker is installed  properly . 
+	It should appear the following message:
+	
+	`` Hello from Docker!``  
+	``This message shows that your installation appears to be working correctly.``
+	
+Finally, in the Terminal window excecute ``docker pull tensorflow/tensorflow:2.1.0-py3-jupyter``.
+
 ## Install Anaconda  
   
 Follow the instructions for your operating system.  
