@@ -72,15 +72,14 @@ Follow the instructions of your operating system:
 * For Linux, follow this [link](https://docs.docker.com/install/linux/docker-ce/ubuntu/).  
 * For Windows 10 64-bit (Pro, Enterprise, or Education), follow this [link](https://docs.docker.com/docker-for-windows/install/).  
 * For Windows 10 64-bit Home:
-	i.		Excecute the files "first.bat" and "second.bat" in order, as administrator.
-	ii.		Restart your computer.
-	iii. 	Excecute the following commands in terminal, as administrator.
-	
-		``REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /f /v EditionID /t REG_SZ /d "Professional"``
-		``REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /f /v ProductName /t REG_SZ /d "Windows 10 Pro"``
-	iv.	Follow this [link](https://docs.docker.com/docker-for-windows/install/) to install Docker.
-	v.	Restart your computer, do not log out.
-	vi.	Excecute the following commands in terminal, as administrator.
+	1. Excecute the files "first.bat" and "second.bat" in order, as administrator.
+	2. Restart your computer.
+	3. Excecute the following commands in terminal, as administrator.
+			``REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /f /v EditionID /t REG_SZ /d "Professional"``
+			``REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /f /v ProductName /t REG_SZ /d "Windows 10 Pro"``
+	4. Follow this [link](https://docs.docker.com/docker-for-windows/install/) to install Docker.
+	5.	Restart your computer, do not log out.
+	6.	Excecute the following commands in terminal, as administrator.
 		
 		``REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v EditionID /t REG_SZ /d "Core"``
 		``REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v ProductName /t REG_SZ /d "Windows 10 Home"``
