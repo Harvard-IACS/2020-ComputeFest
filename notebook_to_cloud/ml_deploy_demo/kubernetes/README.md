@@ -129,10 +129,11 @@ We will now put our sentiment analysis Flask application into a Docker container
 `{"data":  ["this place is the worst!", "this place is the best!", "I hate this place."]}`.
 
 ### Clean-up app and delete cluster
-<span style="color:red">**WARNING: If you do not delete your cluster, you will get charged extra by AWS.**</span>
-5. Run `kubectl delete -f sentiment_analysis_service.yaml` to delete the service. This deletes the *LoadBalancer*, which prevents anyone from accessing the application from the outside world.
-    1. Verify this by running `kubectl get svc`. You should no longer see the *sentiment-analysis-service*.
-6. Run `kubectl delete -f sentiment_analysis_deployment.yaml` to delete the pod holding our Docker container. Our application is no longer running on the Kubernetes cluster.
-    1. Verify this by running `kubectl get po`. You may see that the **STATUS** of your pod is *Terminating* or a message saying "*No resources found in default namespace.*".
-7. Run `eksctl delete cluster -f cluster.yaml` to delete your EKS cluster.
-    1. This will take 10-15 minutes.
+**WARNING: If you do not delete your cluster, you will get charged extra by AWS.**  
+
+6. Run `kubectl delete -f sentiment_analysis_service.yaml` to delete the service. This deletes the *LoadBalancer*, which prevents anyone from accessing the application from the outside world.
+    1. Verify this by running `kubectl get svc`. You should no longer see the *sentiment-analysis-service*.  
+7. Run `kubectl delete -f sentiment_analysis_deployment.yaml` to delete the pod holding our Docker container. Our application is no longer running on the EKS cluster.  
+    1. Verify this by running `kubectl get po`. You may see that the **STATUS** of your pod is *Terminating* or a message saying "*No resources found in default namespace.*".  
+8. Run `eksctl delete cluster -f cluster.yaml` to delete your EKS cluster.  
+    1. This will take 10-15 minutes.  
