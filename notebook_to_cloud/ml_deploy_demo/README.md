@@ -164,6 +164,8 @@ We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
 dhfromkorea@gmail.com (M.E. IACS, Harvard University)
+dylanrandle@gmail.com (M.S. Data Science, Harvard University)
+bpatel@g.harvard.edu (M.E. IACS, Harvard University)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
