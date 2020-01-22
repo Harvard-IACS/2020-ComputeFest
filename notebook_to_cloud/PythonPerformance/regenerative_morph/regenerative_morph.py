@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import cv2
 
 import time
-# import profile
+import profile
 
 # This is a helper function to tranform a matrix into smaller patches
 # It was originally a Matlab command, and having it in Python would greatly help performance
@@ -288,8 +288,8 @@ ws = [3, 5, 7]
 target = 0.5*source1 + 0.5*source2
 
 start = time.time()
-morph = regenerative_morph(source1, source2, target, ws, 0.5)
-# profile.run('morph = regenerative_morph(source1, source2, target, ws, 0.5)')
+#morph = regenerative_morph(source1, source2, target, ws, 0.5)
+profile.run('morph = regenerative_morph(source1, source2, target, ws, 0.5)')
 end = time.time()
 print('Time elapsed: %.4f s.' % (end - start))
 
