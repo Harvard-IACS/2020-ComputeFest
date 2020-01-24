@@ -1,6 +1,5 @@
 # Model Visualization
 
----
 
 ### Welcome to the model visualization workshop! 
 
