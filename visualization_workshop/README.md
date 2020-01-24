@@ -35,9 +35,9 @@ Here are some links we found helpful
 Feel free to email us with questions
 
 
-* Justin Lee (jsl2239@columbia.edu)
-* Ryan Janssen (ryan@exquanta.com)
-* Paul Blankley (paul@exquanta.com)
+* Justin Lee (jsl2239 [at] columbia [dot] edu)
+* Ryan Janssen (ryan [at] exquanta [dot] com)
+* Paul Blankley (paul [at] exquanta [dot] com)
 
 
 
